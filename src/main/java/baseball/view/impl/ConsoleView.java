@@ -2,6 +2,7 @@ package baseball.view.impl;
 
 import java.io.PrintStream;
 
+import baseball.domain.BaseballResult;
 import baseball.domain.Numbers;
 import baseball.exception.BaseballException;
 import baseball.view.View;
@@ -23,12 +24,13 @@ public class ConsoleView implements View {
                 out.println(ex.getMessage());
             }
         }
-
     }
 
-    public void writeResult(Object o) {
-        out.println();
+    @Override
+    public void printResult(BaseballResult result) {
+        
     }
+
 
     @Override
     public GameStatus confirmRestart() {
@@ -43,13 +45,8 @@ public class ConsoleView implements View {
                 out.println(ex.getMessage());
             }
         }
-        
     }
 
-    @Override
-    public void writeResult() {
-        // TODO Auto-generated method stub
-        
-    }
+    
     
 }
