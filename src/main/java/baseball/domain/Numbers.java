@@ -14,18 +14,14 @@ public class Numbers {
     public Numbers(String input) {
         String numbers = input.replaceAll("\\D+","");
         String[] split = numbers.split("");
-
         if(split.length != 3) {
             throw new InvalidNumberCountException();
         }
 
-        assertDifferent(split[0], split[1]);
-        assertDifferent(split[0], split[2]);
-        assertDifferent(split[1], split[2]);
-
         first = split[0];
         second = split[1];
         third = split[2];
+        assertDifferent();
     }
 
     @Override
@@ -50,10 +46,15 @@ public class Numbers {
         return first + second + third;
     }
 
+    private void assertDifferent() {
+        assertDifferent(first, second);
+        assertDifferent(first, third);
+        assertDifferent(second, third);
+    }
+
     private void assertDifferent(String number1, String number2) {
         if(number1.equals(number2)) {
             throw new DuplicateNumberException();
         }
     }
-
 }
