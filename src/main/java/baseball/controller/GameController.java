@@ -23,7 +23,6 @@ public class GameController {
 
     public GameStatus play() {
         final Numbers numbers = generateNumbers();
-        System.out.println(numbers);
         BaseballResult result = null;
 
         do {
