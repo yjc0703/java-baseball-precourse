@@ -28,7 +28,7 @@ public class ConsoleView implements View {
 
     @Override
     public void printResult(BaseballResult result) {
-        
+        out.println(result.getResultString());
     }
 
 
@@ -47,6 +47,8 @@ public class ConsoleView implements View {
         }
     }
 
-    
-    
+    @Override
+    public void printFinish() {
+        out.println("게임 끝");
+    }
 }

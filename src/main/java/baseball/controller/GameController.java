@@ -1,10 +1,14 @@
 package baseball.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import baseball.domain.BaseballResult;
 import baseball.domain.Numbers;
 import baseball.service.GameService;
 import baseball.view.View;
 import baseball.view.impl.GameStatus;
+import nextstep.utils.Randoms;
 
 public class GameController {
 
@@ -19,6 +23,7 @@ public class GameController {
 
     public GameStatus play() {
         final Numbers numbers = generateNumbers();
+        System.out.println(numbers);
         BaseballResult result = null;
 
         do {
@@ -30,8 +35,14 @@ public class GameController {
     }
 
     private Numbers generateNumbers() {
-        // TODO: Randoms 이용하여 숫자 생성
-        return new Numbers("123");
+        List<String> list = new ArrayList<>(3);
+        while(list.size() < 3) {
+            String number = String.valueOf(Randoms.pickNumberInRange(1, 9));
+            if(list.indexOf(number) < 0) {
+                list.add(number);
+            }
+        }
+        return new Numbers(String.join("", list));
     }
 
 }

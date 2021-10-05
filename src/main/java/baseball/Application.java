@@ -17,5 +17,6 @@ public class Application {
         do {
             status = controller.play();
         } while(status.equals(GameStatus.CONTINUE));
+        view.printFinish();
     }
 }

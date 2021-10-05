@@ -1,5 +1,8 @@
 package baseball.domain;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 import baseball.exception.DuplicateNumberException;
@@ -22,6 +25,24 @@ public class Numbers {
         second = split[1];
         third = split[2];
         assertDifferent();
+    }
+    
+    public int countStrike(Numbers numbers2) {
+        return calcStrikeCount(first, numbers2.first) + 
+            calcStrikeCount(second, numbers2.second) + 
+            calcStrikeCount(third, numbers2.third);
+    }
+
+    public int countBall(Numbers numbers2) {
+        int ballcount = 0;
+        List<String> list = Arrays.asList(first, second, third);
+        List<String> list2 = Arrays.asList(numbers2.first, numbers2.second, numbers2.third);
+        for(int i = 0; i < list.size(); i++) {
+            List<String> clone = new ArrayList<>(list);
+            clone.remove(i);
+            ballcount += calcBallCount(list2.get(i), clone);
+        }
+        return ballcount;
     }
 
     @Override
@@ -56,5 +77,13 @@ public class Numbers {
         if(number1.equals(number2)) {
             throw new DuplicateNumberException();
         }
+    }
+
+    private int calcStrikeCount(String number, String number2) {
+        return number.equals(number2) ? 1 : 0;
+    }
+    
+    private int calcBallCount(String number, List<String> clone) {
+        return clone.indexOf(number) >= 0 ? 1 : 0;
     }
 }

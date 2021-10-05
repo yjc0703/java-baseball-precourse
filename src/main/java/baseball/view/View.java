@@ -8,4 +8,5 @@ public interface View {
     Numbers getNumbers();
     GameStatus confirmRestart();
     void printResult(BaseballResult result);
+    void printFinish();
 }
