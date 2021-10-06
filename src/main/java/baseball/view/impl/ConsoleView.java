@@ -38,7 +38,6 @@ public class ConsoleView implements View {
             out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요. ");
             String input = Console.readLine();
 
-            // TODO: try / catch 블럭도 indent 제약사항에 걸리는걸까?
             try {
                 return GameStatus.from(input);
             } catch(BaseballException ex) {

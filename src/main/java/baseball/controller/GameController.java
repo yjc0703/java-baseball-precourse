@@ -22,11 +22,11 @@ public class GameController {
     }
 
     public GameStatus play() {
-        final Numbers numbers = generateNumbers();
+        final Numbers gameNumbers = generateNumbers();
         BaseballResult result = null;
 
         do {
-            result = service.predict(numbers, view.getNumbers());
+            result = service.predict(gameNumbers, view.getNumbers());
             view.printResult(result);
         } while(result.isNotSolved());
 

@@ -11,10 +11,10 @@ public class BaseballResult {
 
     private final int balls;
 
-    public BaseballResult(Numbers numbers, Numbers numbers2) {
-        this.isSameNumbers = numbers.equals(numbers2);
-        this.strikes = numbers.countStrike(numbers2);
-        this.balls = numbers.countBall(numbers2);
+    public BaseballResult(Numbers gameNumbers, Numbers userNumbers) {
+        this.isSameNumbers = gameNumbers.equals(userNumbers);
+        this.strikes = gameNumbers.countStrike(userNumbers);
+        this.balls = gameNumbers.countBall(userNumbers);
     }
 
     public boolean isNotSolved() {

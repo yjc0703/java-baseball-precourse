@@ -5,7 +5,7 @@ import baseball.domain.Numbers;
 
 public class GameService {
 
-    public BaseballResult predict(Numbers numbers, Numbers numbers2) {
-        return new BaseballResult(numbers, numbers2);
+    public BaseballResult predict(Numbers gameNumbers, Numbers userNumbers) {
+        return new BaseballResult(gameNumbers, userNumbers);
     }
 }
