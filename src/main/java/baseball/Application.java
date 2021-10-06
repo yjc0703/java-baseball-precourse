@@ -10,13 +10,13 @@ public class Application {
     public static void main(String[] args) {
         View view = new ConsoleView();
         GameService service = new GameService();
-
         GameController controller = new GameController(view, service);
         GameStatus status = null;
 
         do {
             status = controller.play();
         } while(status.equals(GameStatus.CONTINUE));
+        
         view.printFinish();
     }
 }

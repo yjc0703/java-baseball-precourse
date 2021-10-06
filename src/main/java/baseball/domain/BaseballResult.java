@@ -36,5 +36,4 @@ public class BaseballResult {
             list.add(count + predictType);
         }
     }
-
 }
