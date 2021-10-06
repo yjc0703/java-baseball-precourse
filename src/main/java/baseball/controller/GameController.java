@@ -39,7 +39,9 @@ public class GameController {
     }
 
     private List<String> addUniqueNumber(List<String> list) {
-        if(list.size() == 3) return list;
+        if(list.size() == 3) {
+            return list;
+        }
 
         String number = String.valueOf(Randoms.pickNumberInRange(1, 9));
         if(list.indexOf(number) < 0) {
