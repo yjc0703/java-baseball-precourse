@@ -25,11 +25,15 @@ public class NumbersTest {
     @Test
     @DisplayName("숫자가 세자리가 아니면 Exception")
     void 세자리_테스트() {
-        Numbers valid = new Numbers("123");
+        Numbers valid = new Numbers("513");
         assertThat(valid.toString()).hasSize(3);
 
         assertThatThrownBy(() -> {
             new Numbers("1234");
+        }).isInstanceOf(InvalidNumberCountException.class);
+
+        assertThatThrownBy(() -> {
+            new Numbers("15");
         }).isInstanceOf(InvalidNumberCountException.class);
     }
 
