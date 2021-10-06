@@ -23,7 +23,6 @@ public class GameController {
 
     public GameStatus play() {
         final Numbers numbers = generateNumbers();
-        System.out.println(numbers);
         BaseballResult result = null;
 
         do {
@@ -35,14 +34,8 @@ public class GameController {
     }
 
     private Numbers generateNumbers() {
-        List<String> list = addUniqueNumber(new ArrayList<>(3));
-        // while(list.size() < 3) {
-        //     String number = String.valueOf(Randoms.pickNumberInRange(1, 9));
-        //     if(list.indexOf(number) < 0) {
-        //         list.add(number);
-        //     }
-        // }
-        return new Numbers(String.join("", list));
+        List<String> uniqueNumbers = addUniqueNumber(new ArrayList<>(3));
+        return new Numbers(String.join("", uniqueNumbers));
     }
 
     private List<String> addUniqueNumber(List<String> list) {
@@ -54,7 +47,6 @@ public class GameController {
         }
 
         return addUniqueNumber(list);
-
     }
 
 }
